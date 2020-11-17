@@ -6,7 +6,9 @@ namemcpy is a api wrapper for https://namemc.com
 
 `pip install namemcpy`
 or
-`pip3 install namemcpy'
+
+`pip3 install namemcpy`
+
 or just run the .bat file in the install folder.
 
 # Credits
