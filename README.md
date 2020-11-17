@@ -2,10 +2,9 @@
 namemcpy is a api wrapper for https://namemc.com
 
 
-# wip
+# How to install
 
-wip STILL UPDATING STUFF
-
+'''pip install namemcpy'''
 # Credits
 [lasscat](https://github.com/lasscat)
 
