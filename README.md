@@ -23,3 +23,9 @@ Anyone who contributes gets added if I have not added you please email me. To al
 [lasscat](https://github.com/lasscat)
 
 [BluCobalt](https://github.com/BluCobalt)
+
+
+# TODO 🧠 (my personal stuff to do excuse my grammar)
+idk add some kind of feature that you can search likes of a game and see if someone in your friends list is liking or something
+
+idk think of something else luke!
