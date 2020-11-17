@@ -1,2 +1,2 @@
 # namemcpy
-Namemc api wrapper made in python
+namemcpy is a api wrapper for https://namemc.com
