@@ -1,6 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/namemcpy.svg)](https://badge.fury.io/py/namemcpy)
-# namemcpy (WIP)
-Namemcpy is a api wrapper for https://namemc.com.
+[![PyPI version](https://badge.fury.io/py/namemcpy.svg)][![PyPI license](https://img.shields.io/pypi/l/namemcpy.svg)] [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)] 
 
 
 # How to install
