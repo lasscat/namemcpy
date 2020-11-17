@@ -1,4 +1,4 @@
-[![PyPI version](https://badge.fury.io/py/namemcpy.svg)][![PyPI license](https://img.shields.io/pypi/l/namemcpy.svg)] [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)] 
+[![PyPI version](https://badge.fury.io/py/namemcpy.svg)[![PyPI license](https://img.shields.io/pypi/l/namemcpy.svg) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 
 # How to install
