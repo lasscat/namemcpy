@@ -2,7 +2,7 @@
 namemcpy is a api wrapper for https://namemc.com
 
 
-#wip
+# wip
 
 wip STILL UPDATING STUFF
 
