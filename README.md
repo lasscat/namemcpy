@@ -1,5 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/namemcpy.svg)](https://badge.fury.io/py/namemcpy)
 # namemcpy
-namemcpy is a api wrapper for https://namemc.com
+Namemcpy is a api wrapper for https://namemc.com.
 
 
 # How to install
