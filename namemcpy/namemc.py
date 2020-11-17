@@ -123,8 +123,10 @@ class namepy():
         #if namemc_verify)_like_url output is false or true give response ect
         if namemc_verify_like_url_request==False:
             print('The player ' + username + ' is not liking the server ' + server)
+            return False
         if namemc_verify_like_url_request==True:
             print('The player ' + username + ' is liking the server ' + server)
+            return True
 
     def verifyLikeUuid(self, server, uuid): # same thing as username put you can search with a uuid instead of username
 
@@ -136,5 +138,7 @@ class namepy():
         # if namemc_verify)_like_url output is false or true give response ect
         if namemc_server_like_url_request==False:
             print('The uuid ' + uuid + ' is not liking the server ' + server)
+            return False
         if namemc_server_like_url_request==True:
             print('The uuid ' + uuid + ' is liking the server ' + server)
+            return True
