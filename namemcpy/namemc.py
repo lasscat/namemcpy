@@ -1,7 +1,7 @@
 import time
 import requests
 import json
-ts = time.time()
+ts = time.time() # this is for the unix timestamp for the mojang api (specifically the player to uuid)
 class namepy():
 
     def __init__(self):
