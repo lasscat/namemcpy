@@ -18,7 +18,7 @@ or just run the .bat file in the install folder.
 Check out the usage folder right I am still working on the readme usage.
 
   # Credits❤️
-Anyone who contributes gets added if I have not added you please email me. To all the contributers thank you so much support I would not be here withought all of you ❤️
+Anyone who contributes gets added if I have not added you please email me. To all the contributers thank you so much support I would not be here without all of you ❤️
 
 [lasscat](https://github.com/lasscat)
 
