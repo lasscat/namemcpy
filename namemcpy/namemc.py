@@ -43,7 +43,7 @@ class namepy():
         for players in friend_scrape: #prints the usernames inside statment
             friend_list.append(players['name'])
             #returns output of the friends usernames:
-        print(friend_list)
+        return  friend_list
 
     def printFriendListUuidOutputUuid(self, uuid):
         friend_list = []
@@ -54,7 +54,7 @@ class namepy():
         for players in friend_scrape: #prints the usernames inside statment
             friend_list.append(players['uuid'])
             #returns output of the friends uuids:
-        print(friend_list)
+        return  friend_list
 
     def printFriendListUsernameOutputUsername(self, player): #add a function to find a users friend my username (player) is the player you want to search the friends of
 
@@ -69,7 +69,7 @@ class namepy():
         for players in friend_scrape: #makes loop to print usernames
             friend_list.append(players['name'])
             #returns output of the friends usernames:
-        print(friend_list)
+        return  friend_list
 
     def areFriendsUsername(self, player1, player2): # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
         friend_list = []
@@ -146,22 +146,6 @@ class namepy():
             return False
         if namemc_server_like_url_request==True:
             return True
-
-
-    def friendsOfFriendsUsername(self, username, target): # fsome action that you can see what your friend is likign (server) searching by username and output by username
-        friend_list = []
-
-        # -------getting username to uuid-------
-        username_2_uuid_url = requests.get(self.api_url + username + '?at=' + str(ts)).json()
-        username_2_uuid = (username_2_uuid_url['id'])
-        # -------------------
-
-        namemc_friend_api_request = requests.get(self.friend_url + str(username_2_uuid) + '/friends').json()
-
-        for player in namemc_friend_api_request:
-            friend_list.append(player['name'])
-
-        print(friend_list)
 
     def usernameToUuid(self, username):
         # -------getting username to uuid-------
