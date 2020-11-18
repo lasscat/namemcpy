@@ -35,3 +35,4 @@ Uuid to Username (returns username)
 (THIS IS NOT A PART OF NAMEMC API JUST SOME FEATURE THAT I THOUGHT MIGHT BE USEFULL FOR ALL OF YOU YOU CAN ALSO YOU THE BUILT IN FUNCTIONS THAT AUTO CONVERT IT ALSO.)
 username to uuid (returns uuid)
 
+For more detail check out the examples folder.
