@@ -16,7 +16,7 @@ or just run the .bat file in the install folder.
 
 # Usage (WIP) ✏️
 
-For usage check out the USAGE.md under the usage folder.
+For usage check out the USAGE.md.
 
   # Credits❤️
 Anyone who contributes gets added if I have not added you please email me. To all the contributers thank you so much support I would not be here without all of you ❤️
