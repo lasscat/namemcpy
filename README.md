@@ -27,4 +27,4 @@ Anyone who contributes gets added if I have not added you please email me. To al
 
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
-nothing really just finished the new update with the features I want idk if u want to add a feature email me ants.uk.us@gmail.com
+add some features where like get the list of uuids whering skin but convert them to usernames
