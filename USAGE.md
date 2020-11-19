@@ -35,4 +35,14 @@ Uuid to Username (returns username)
 (THIS IS NOT A PART OF NAMEMC API JUST SOME FEATURE THAT I THOUGHT MIGHT BE USEFULL FOR ALL OF YOU YOU CAN ALSO YOU THE BUILT IN FUNCTIONS THAT AUTO CONVERT IT ALSO.)
 username to uuid (returns uuid)
 
-For more detail check out the examples folder.
+## skinUsers(skinid)
+Enter the skin id to the skin you want to get the users from and it will return a value for all the names/players who are wearing the skin.
+
+## getSkinTags(skinid)
+Get the skin tags or hashtags on a skin
+
+## getSkinNumber(skinid)]
+Get how much people are using a skin
+
+
+For more detail check out the examples folder. (not updated very often)
