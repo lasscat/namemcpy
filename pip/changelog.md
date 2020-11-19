@@ -1,10 +1,9 @@
-# v1.1.1 11-18-2020🥳
+# v1.2.0🎉
+Bigger update adding soem namemc non api features such as getskinnumber() getskintags() skinusers() and added some more comments to make reading or understanding some stuff easier.
+
+# v1.1.1 11-18-2020🎉 
 
 Smaller update just got rid of a scraped function that I accidently left in the code.
-
-
-
-
 
 # v1.1.0 11-18-2020🥳
 
@@ -15,5 +14,4 @@ Smaller update just got rid of a scraped function that I accidently left in the 
 3. Fixed some typos and the printFriendListUsernameOutputUuid() As it would outputing name, which was fixed.
 
 Pretty much it
-🥳
 
