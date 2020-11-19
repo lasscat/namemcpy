@@ -7,6 +7,7 @@ ts = time.time()
 class namepy():
 
     def __init__(self):
+        """pretty much every variable for links for api ect"""
         self.url = 'https://namemc.com'
         self.api_url = 'https://api.mojang.com/users/profiles/minecraft/'
         self.friend_url = 'https://api.namemc.com/profile/'
@@ -15,9 +16,11 @@ class namepy():
         self.skin_url = 'https://namemc.com/skin/'
 
     def __version__(self):
-        return "0.0.1" # returns namepy version
+        """returns version number"""
+        return "1.2.0" # returns namepy version
 
     def printFriendListUsernameOutputUuid(self, player): #add a function to find a users friend my username (player) is the player you want to search the friends of
+        "print friends list search by username and the ouput being uuid"
 
         friend_list = []
 
@@ -34,6 +37,7 @@ class namepy():
         print(friend_list)
 
     def printFriendListUuidOutputUsername(self, uuid):
+        "print friends list search by uuid and the ouput being username"
 
         friend_list = []
 
@@ -47,6 +51,8 @@ class namepy():
         return  friend_list
 
     def printFriendListUuidOutputUuid(self, uuid):
+        "print friends list search by uuid and the ouput being uuid"
+
         friend_list = []
         #namemc
         friend_scrape = requests.get(self.friend_url + uuid + '/friends').json() # scrapes the url we just made # ^\
@@ -58,6 +64,7 @@ class namepy():
         return  friend_list
 
     def printFriendListUsernameOutputUsername(self, player): #add a function to find a users friend my username (player) is the player you want to search the friends of
+        "print friends list search by username and the ouput being username"
 
         friend_list = []
 
@@ -73,6 +80,8 @@ class namepy():
         return  friend_list
 
     def areFriendsUsername(self, player1, player2): # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
+        """find if a user is friends by username"""
+
         friend_list = []
         #-------getting player 1 uuid-------
         player_1_link = requests.get(self.api_url + player1 + "?at=" + str(ts)).json() #look at printfriendlist for what this means
@@ -90,6 +99,8 @@ class namepy():
             return False
 
     def areFriendsUuid(self, uuid1, uuid2): #uuid1 is the user you will be searching the friends list and uuid2 is the player you will look in player1's friend list
+        """find if a user is friends by uuid"""
+
         friend_list = []
 
         response_namemc = requests.get(self.friend_url + uuid1 + '/friends').json()
@@ -104,6 +115,8 @@ class namepy():
 
 
     def serverLikeNumber(self, server): #server list being the servers ip INCLUDE THE DOMAIN TLD
+        """get the server like number"""
+
         likes = [] # creates a list so we can append all the likes to this list later
         server_api_url = self.like_list + server + '/likes'
         server_url_request = requests.get(server_api_url).json() #requests get the url from above ^ then jsons it
@@ -117,6 +130,7 @@ class namepy():
         return len_likes
 
     def verifyLikeUsername(self, server, username):
+        """verify like by username"""
 
         # -------getting username to uuid-------
         username_2_uuid_url = self.api_url + username + '?at=' + str(ts)
@@ -137,7 +151,7 @@ class namepy():
             return False
 
     def verifyLikeUuid(self, server, uuid): # same thing as username put you can search with a uuid instead of username
-
+        """very like by uuid"""
         #namemc api
         namemc_server_like_url_request = requests.get(self.like_list +  server + '/likes?profile=' + str(uuid)).json() # gets api
         #namemc api
@@ -149,6 +163,8 @@ class namepy():
             return True
 
     def usernameToUuid(self, username):
+        """username to uuid"""
+
         # -------getting username to uuid-------
         username_2_uuid_url = requests.get(self.api_url + username + '?at=' + str(ts)).json()
         username_2_uuid = (username_2_uuid_url['id'])
