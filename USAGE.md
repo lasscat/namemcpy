@@ -41,7 +41,7 @@ Enter the skin id to the skin you want to get the users from and it will return 
 ## getSkinTags(skinid)
 Get the skin tags or hashtags on a skin
 
-## getSkinNumber(skinid)]
+## getSkinNumber(skinid)
 Get how much people are using a skin
 
 
