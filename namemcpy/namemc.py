@@ -1,7 +1,7 @@
 import time
 import requests
 import json
-
+from bs4 import BeautifulSoup
 ts = time.time()
 
 class namepy():
@@ -12,6 +12,7 @@ class namepy():
         self.friend_url = 'https://api.namemc.com/profile/'
         self.like_list = 'https://api.namemc.com/server/' # + /likes
         self.uuid_api_url = 'https://sessionserver.mojang.com/session/minecraft/profile/'
+        self.skin_url = 'https://namemc.com/skin/'
 
     def __version__(self):
         return "0.0.1" # returns namepy version
@@ -161,3 +162,64 @@ class namepy():
         username_2_uuid = (username_2_uuid_url['name'])
         # -------------------
         return username_2_uuid
+
+    def skinUsers(self, skinid): # some test package not using namemcs api we have to scrape
+        """Find all users with the skinid you entered."""
+
+        skin_users_list = []
+
+        skin_link = requests.get(self.skin_url + skinid)# scrapes link then requests get it
+
+        soup = BeautifulSoup(skin_link.content, 'html.parser') #beatuiful soups the request var we made then html parse it (var holds are the data from the website)
+
+        """"extracing info (via class)"""
+        username_box_result = soup.find_all('div', class_='card-body player-list py-2') # find everything under div and the class for the usernames are stored
+
+        for results in username_box_result: # for things in usernameboxreslt
+            for usernames in results.find_all('a', href=True): # this just sorts everything to href libary which we need to search the naems in
+                skin_users_list.append(usernames.text) # adds all names to list
+
+        if ValueError: # if no one using skin returns false
+            return False # false meaning no one is using the skin
+
+        else: #if no error do this
+
+            skin_users_list.remove('…') # removes something that is not a name
+
+            return skin_users_list # returns
+
+    def getSkinTags(self, skinid):
+        """gets skin tags on namemc"""
+        empty_tags = [] # for refrence at end
+        tags = [] # list we will be storing the tags in
+
+        skin_link = requests.get(self.skin_url + skinid) # get link
+        soup = BeautifulSoup(skin_link.content, 'html.parser') #parses html
+
+        tag_box_result = soup.find_all('div', class_='card-body text-center py-1') # stripen down list
+
+        for tag in tag_box_result:
+            for each_tag in tag.find_all(href=True): #stripen down list to just tags
+                tags.append(each_tag.text)
+
+            return tags
+
+        if tags == empty_tags:
+            return False #returns false if there are no tags
+
+    def getSkinNumber(self, skinid):
+        """ gets how many users are wearing a certain skin """
+
+        user_list = []
+
+        skin_link = requests.get(self.skin_url + skinid)
+        soup = BeautifulSoup(skin_link.content, 'html.parser')
+
+        username_box_result = soup.find_all('div', class_='card-body player-list py-2') # find everything under div and the class for the usernames are stored\
+        for results in username_box_result:  # for things in usernameboxreslt
+            for usernames in results.find_all('a', href=True):  # this just sorts everything to href libary which we need to search the naems in
+                user_list.append(usernames.text)  # adds all names to list
+                number = len(user_list) # lens the list for all users
+
+
+        return number #returns the number value
