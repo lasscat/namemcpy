@@ -1,3 +1,9 @@
+# v1.3.0 11-27-2020🥳
+Accidentally left some stuff that I dont need and forgot to update the version function.
+
+# v1.3.0 11-27-2020🥳
+Shortened many functions to make them easier to use and reduce lines of code when updating to this version please change your code as it will break.
+
 # v1.2.0🎉
 Bigger update adding soem namemc non api features such as getskinnumber() getskintags() skinusers() and added some more comments to make reading or understanding some stuff easier.
 
