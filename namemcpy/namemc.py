@@ -14,104 +14,88 @@ class namepy():
         self.like_list = 'https://api.namemc.com/server/' # + /likes
         self.uuid_api_url = 'https://sessionserver.mojang.com/session/minecraft/profile/'
         self.skin_url = 'https://namemc.com/skin/'
+        self.cape_url = 'https://namemc.com/cape/'
 
     def __version__(self):
         """returns version number"""
         return "1.2.0" # returns namepy version
 
-    def printFriendListUsernameOutputUuid(self, player): #add a function to find a users friend my username (player) is the player you want to search the friends of
-        "print friends list search by username and the ouput being uuid"
-
-        friend_list = []
-
-        r = requests.get(self.api_url + player + '?at=' + str(ts)).json() #uses mojangs api scrapes website (there uuid is the "id" part) (ts is the timestamp in unix)
-
-        uuid = (r['id']) # gets uuid
-
-        url = self.friend_url + uuid + '/friends' # creating full namemc url
-        friend_scrape = requests.get(url).json() # scrapes the url we just made # ^\
-
-        for players in friend_scrape: #makes loop to print usernames
-            friend_list.append(players['uuid'])
-            #returns output of the friends usernames:
-        print(friend_list)
-
-    def printFriendListUuidOutputUsername(self, uuid):
-        "print friends list search by uuid and the ouput being username"
-
-        friend_list = []
-
-        #namemc
-        friend_scrape = requests.get(self.friend_url + uuid + '/friends').json() # scrapes the url we just made # ^\
-        #namemc
-
-        for players in friend_scrape: #prints the usernames inside statment
-            friend_list.append(players['name'])
-            #returns output of the friends usernames:
-        return  friend_list
-
-    def printFriendListUuidOutputUuid(self, uuid):
-        "print friends list search by uuid and the ouput being uuid"
-
-        friend_list = []
-        #namemc
-        friend_scrape = requests.get(self.friend_url + uuid + '/friends').json() # scrapes the url we just made # ^\
-        #namemc
-
-        for players in friend_scrape: #prints the usernames inside statment
-            friend_list.append(players['uuid'])
-            #returns output of the friends uuids:
-        return  friend_list
-
-    def printFriendListUsernameOutputUsername(self, player): #add a function to find a users friend my username (player) is the player you want to search the friends of
+    def printFriendList(self, playerInput=False, uuidInput=False,
+                        output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
         "print friends list search by username and the ouput being username"
+        if isinstance(playerInput, str):  # if playerinput is a bool or a string then
+            if output == 'username' or output == 'player' or output == 'uuid':  # just to make sure that the player entered or spelled the output thing right
+                friend_list = []
 
-        friend_list = []
+                r = requests.get(self.api_url + playerInput + '?at=' + str(
+                    ts)).json()  # uses mojangs api scrapes website (there uuid is the "id" part) (ts is the timestamp in unix)
 
-        r = requests.get(self.api_url + player + '?at=' + str(ts)).json() #uses mojangs api scrapes website (there uuid is the "id" part) (ts is the timestamp in unix)
+                uuid = (r['id'])  # gets uuid
 
-        uuid = (r['id']) # gets uuid
+                friend_scrape = requests.get(
+                    self.friend_url + str(uuid) + '/friends').json()  # scrapes the url we just made # ^\
 
-        friend_scrape = requests.get(self.friend_url + str(uuid) + '/friends').json() # scrapes the url we just made # ^\
+                for players in friend_scrape:
+                    if output == 'uuid':
+                        friend_list.append(
+                            players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
+                    if output == 'username' or output == 'player':
+                        friend_list.append(players['name'])  # if player said output username appends list
+                return friend_list
 
-        for players in friend_scrape: #makes loop to print usernames
-            friend_list.append(players['name'])
-            #returns output of the friends usernames:
-        return  friend_list
+        if isinstance(uuidInput, str):
+            if output == 'username' or output == 'player' or output == 'uuid':
+                friend_scrape = requests.get(
+                    self.friend_url + str(uuidInput) + '/friends').json()  # scrapes the url we just made # ^\
 
-    def areFriendsUsername(self, player1, player2): # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
+                for players in friend_scrape:
+                    if output == 'uuid':
+                        friend_list.append(
+                            players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
+                    if output == 'username' or output == 'player':
+                        friend_list.append(players['name'])  # if player said output username appends list
+                    return friend_list
+
+    def areFriends(self, uuid1=False, uuid2=False, username1=False,
+                   username2=False):  # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
         """find if a user is friends by username"""
 
         friend_list = []
-        #-------getting player 1 uuid-------
-        player_1_link = requests.get(self.api_url + player1 + "?at=" + str(ts)).json() #look at printfriendlist for what this means
-        player_1_uuid = (player_1_link['id']) # gets player 1 uuid value and stores it into the var
-        #-------------------
 
-        response_namemc = requests.get(self.friend_url + player_1_uuid + '/friends').json()
+        if isinstance(username1, str) and isinstance(username2, str):
+            # -------getting player 1 uuid-------
+            player_1_link = requests.get(
+                self.api_url + username1 + "?at=" + str(ts)).json()  # look at printfriendlist for what this means
+            player_1_uuid = (player_1_link['id'])  # gets player 1 uuid value and stores it into the var
+            # -------------------
+            response_namemc = requests.get(self.friend_url + player_1_uuid + '/friends').json()
 
-        for friends in response_namemc:
-            friend_list.append(friends['name'])
-
-        if player2 in friend_list:#if player2 is in friends list
-            return True
-        if player2 not in friend_list:#if player2 is not in friends list
-            return False
-
-    def areFriendsUuid(self, uuid1, uuid2): #uuid1 is the user you will be searching the friends list and uuid2 is the player you will look in player1's friend list
-        """find if a user is friends by uuid"""
-
-        friend_list = []
-
-        response_namemc = requests.get(self.friend_url + uuid1 + '/friends').json()
+        if isinstance(uuid1, str) and isinstance(uuid2, str):
+            response_namemc = requests.get(self.friend_url + uuid1 + '/friends').json()
 
         for friends in response_namemc:
-            friend_list.append(friends['uuid']) # adds all uuids to the list friend_list
 
-        if uuid2 in friend_list:
-            return True
-        if uuid2 not in friend_list:
-            return False
+            if isinstance(uuid1, str) and isinstance(uuid2, str):
+                friend_list.append(friends['uuid'])
+
+            if isinstance(username1, str) and isinstance(username2, str):
+                friend_list.append(friends['name'])
+
+        if isinstance(uuid1, str) and (uuid2, str):
+            print(friend_list)
+            if uuid2 in friend_list:  # if player2 is in friends list
+                return True
+
+            if uuid2 not in friend_list:  # if player2 is not in friends list
+                return False
+
+        if isinstance(username1, str) and isinstance(username2, str):
+
+            if username2 in friend_list:  # if player2 is in friends list
+                return True
+
+            if username2 not in friend_list:  # if player2 is not in friends list
+                return False
 
 
     def serverLikeNumber(self, server): #server list being the servers ip INCLUDE THE DOMAIN TLD
@@ -129,38 +113,29 @@ class namepy():
         len_likes = int(len(likes)) # len likes the list to make it a number then int it so it can be a interger
         return len_likes
 
-    def verifyLikeUsername(self, server, username):
+    def verifyLike(self, server, uuid=False, username=False):
         """verify like by username"""
 
-        # -------getting username to uuid-------
-        username_2_uuid_url = self.api_url + username + '?at=' + str(ts)
-        username_2_uuid_request = requests.get(username_2_uuid_url).json()
-        # -------------------
+        if isinstance(username, str):
+            # -------getting username to uuid-------
+            username_2_uuid_request = requests.get(self.api_url + username + '?at=' + str(ts)).json()
+            player2uuid = (username_2_uuid_request['id'])
 
-        #namemc api
-        namemc_verify_like_url = self.like_list + server + '/likes?profile=' + str(username_2_uuid_request)
-        namemc_verify_like_url_request = requests.get(namemc_verify_like_url).json() # will give a output of true or false true being is liking the server and false being the player is not liking the server
-        #namemc api
+            namemc_verify_like_url = self.like_list + server + '/likes?profile=' + str(player2uuid)
+            namemc_verify_like_url_request = requests.get(
+                namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
 
-        #if namemc_verify)_like_url output is false or true give response ect
-        if namemc_verify_like_url_request==False:
-            print('The player ' + username + ' is not liking the server ' + server)
-            return True
-        if namemc_verify_like_url_request==True:
-            print('The player ' + username + ' is liking the server ' + server)
+        if isinstance(uuid, str):
+            namemc_verify_like_url = self.like_list + server + '/likes?profile=' + str(input)
+
+            namemc_verify_like_url_request = requests.get(
+                namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
+            # namemc api
+        if namemc_verify_like_url_request == False:
             return False
-
-    def verifyLikeUuid(self, server, uuid): # same thing as username put you can search with a uuid instead of username
-        """very like by uuid"""
-        #namemc api
-        namemc_server_like_url_request = requests.get(self.like_list +  server + '/likes?profile=' + str(uuid)).json() # gets api
-        #namemc api
-
-        # if namemc_verify)_like_url output is false or true give response ect
-        if namemc_server_like_url_request==False:
-            return False
-        if namemc_server_like_url_request==True:
+        if namemc_verify_like_url_request == True:
             return True
+            # if namemc_verify)_like_url output is false or true give response ect
 
     def usernameToUuid(self, username):
         """username to uuid"""
@@ -239,3 +214,33 @@ class namepy():
 
 
         return number #returns the number value
+
+    def getCapeUsers(self, capeid):
+
+        cape_user_list = []
+
+        cape_request = requests.get(self.cape_url + capeid)
+
+        soup = BeautifulSoup(cape_request, 'html.parser')
+        cape_scrape = soup.find_all('div', class_='card-body player-list py-2')
+
+        for capeusers in cape_scrape:
+            for get_cape in capeusers.find_all('a', href=True):
+                cape_user_list.append(get_cape)
+
+        return cape_user_list
+
+    def capeUserNumber(self, capeid):
+
+        cape_list_for_number = []
+
+        cape_request = requests.get(self.cape_url + capeid)
+
+        soup = BeautifulSoup(cape_request, 'html.parser')
+        cape_scrape = soup.find_all('div', class_='card-body player-list py-2')
+
+        for cape_user in cape_scrape:
+            for capeNumber in cape_user.find_all('a', href=True):
+                cape_list_for_number.append(capeNumber)
+
+        cape_user_total = len(cape_list_for_number)
