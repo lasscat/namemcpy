@@ -18,10 +18,9 @@ class namepy():
 
     def __version__(self):
         """returns version number"""
-        return "1.2.0" # returns namepy version
+        return "1.3.1" # returns namepy version
 
-    def printFriendList(self, playerInput=False, uuidInput=False,
-                        output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
+    def printFriendList(self, playerInput=False, uuidInput=False, output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
         "print friends list search by username and the ouput being username"
         if isinstance(playerInput, str):  # if playerinput is a bool or a string then
             if output == 'username' or output == 'player' or output == 'uuid':  # just to make sure that the player entered or spelled the output thing right
@@ -56,8 +55,7 @@ class namepy():
                         friend_list.append(players['name'])  # if player said output username appends list
                     return friend_list
 
-    def areFriends(self, uuid1=False, uuid2=False, username1=False,
-                   username2=False):  # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
+    def areFriends(self, uuid1=False, uuid2=False, username1=False, username2=False):  # player1 is the user you will be searching the friends list and player 2 is the player you will look in player1's friend list
         """find if a user is friends by username"""
 
         friend_list = []
