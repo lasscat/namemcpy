@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="namemcpy",
-    version="1.1.0",
+    version="1.3.1",
     license="MIT",
     author="Luke Lass",
     author_email="ants.uk.us@gmail.com",
@@ -14,7 +14,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/lasscat/namemcpy",
     packages=setuptools.find_packages(),
-    install_requires = ["requests"],
+    install_requires = ["requests", "bs4"],
     classifiers=[
             "Programming Language :: Python :: 3",
             "License :: OSI Approved :: MIT License",
