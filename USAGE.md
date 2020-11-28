@@ -1,31 +1,17 @@
 # Usage✏️
 
-## printFriendListUsernameOutputUuid(player)
-Gets friend list by username then outputs by uuid.
+## def printFriendList(self, playerInput=False, uuidInput=False, output=False):
+Prints frined list if you are searching by a player fill outt the playerinput to username same thing for uuid but with uuids, and output will be uuid or player which will print or return the uuids or usernames of the targets friend list, 
 
-## printFriendListUuidOutputUsername(uuid)
-Gets friend list by uuid then outputs username.
-
-## printFriendListUuidOutputUuid(uuid)
-Gets friend list by uuid the ouputs uuid.
-
-## printFriendListUsernameOutputUsername(username)
-Gets friend list by username the ouputs username.
-
-## areFriendsUsername(player1, player2)
-Sees if you are friends with another player. Player1 is the friends list you will be searching and player2 is the friend you will be looking for.
-
-## areFriendsUuid(uuid1, uuid2)
-Sees if you are friends with another player. uuid1 is the friends list you will be searching and uuid2 is the friend you will be looking for.
+## def areFriends(self, uuid1=False, uuid2=False, username1=False, username2=False):
+Sees if you are friends with another player. uuid1 is the friends list you will be searching and uuid2 is the friend you will be looking for. vice versa for username 
+if you want to search by usernames enter the values for usernames and vice versa for uuids.
 
 ## serverLikeNumber(server)
 Enter the servers domain name (ex: example.com). It  will return the number of people are liking the server on namemc.
 
-## verifyLikeUsername(server, username)
-Enter the servers domain name (ex: example.com). This command will go through all the likes and see if the player you entered is liking the server you entered.
-
-## verifyLikeUuid(server, uuid)
-Enter the servers domain name (ex: example.com). This command will go through all the likes and see if the uuid you entered is liking the server you entered.
+## def verifyLike(self, server, uuid=False, username=False):
+Enter server and for if you are verifying a like by uuid enter uuid and for username enter username when calling function
 
 ## uuidToUsername(uuid)
 (THIS IS NOT A PART OF NAMEMC API JUST SOME FEATURE THAT I THOUGHT MIGHT BE USEFULL FOR ALL OF YOU. YOU CAN ALSO YOU THE BUILT IN FUNCTIONS THAT AUTO CONVERT IT ALSO.)
