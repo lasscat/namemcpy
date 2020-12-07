@@ -28,5 +28,4 @@ Anyone who contributes gets added if I have not added you please email me. To al
 
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
-add some features where like get the list of uuids whereing skin but convert them to usernamesks 
-get users who are using a cape.
+nothing much
