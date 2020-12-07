@@ -1,3 +1,6 @@
+# v1.3.3 11-27-2020🎉
+Fixed spacing errors that caused the program to break.
+
 # v1.3.0 11-27-2020🥳
 Accidentally left some stuff that I dont need and forgot to update the version function.
 
