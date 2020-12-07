@@ -48,31 +48,26 @@ class namepy():
             if output == 'username' or output == 'player' or output == 'uuid':  # just to make sure that the player entered or spelled the output thing right
                 friend_list = []
 
-                r = requests.get(self.api_url + playerInput + '?at=' + str(
-                    ts)).json()  # uses mojangs api scrapes website (there uuid is the "id" part) (ts is the timestamp in unix)
+                r = requests.get(self.api_url + playerInput + '?at=' + str(ts)).json()  # uses mojangs api scrapes website (there uuid is the "id" part) (ts is the timestamp in unix)
 
                 uuid = (r['id'])  # gets uuid
 
-                friend_scrape = requests.get(
-                    self.friend_url + str(uuid) + '/friends').json()  # scrapes the url we just made # ^\
+                friend_scrape = requests.get(self.friend_url + str(uuid) + '/friends').json()  # scrapes the url we just made # ^\
 
                 for players in friend_scrape:
                     if output == 'uuid':
-                        friend_list.append(
-                            players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
+                        friend_list.append(players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
                     if output == 'username' or output == 'player':
                         friend_list.append(players['name'])  # if player said output username appends list
                 return friend_list
 
         if isinstance(uuidInput, str):
             if output == 'username' or output == 'player' or output == 'uuid':
-                friend_scrape = requests.get(
-                    self.friend_url + str(uuidInput) + '/friends').json()  # scrapes the url we just made # ^\
+                friend_scrape = requests.get(self.friend_url + str(uuidInput) + '/friends').json()  # scrapes the url we just made # ^\
 
                 for players in friend_scrape:
                     if output == 'uuid':
-                        friend_list.append(
-                            players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
+                        friend_list.append(players['uuid'])  # if output or player said uuid just prints all uuids and appends to list
                     if output == 'username' or output == 'player':
                         friend_list.append(players['name'])  # if player said output username appends list
                     return friend_list
@@ -141,14 +136,12 @@ class namepy():
             player2uuid = (username_2_uuid_request['id'])
 
             namemc_verify_like_url = self.like_list + server + '/likes?profile=' + str(player2uuid)
-            namemc_verify_like_url_request = requests.get(
-                namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
+            namemc_verify_like_url_request = requests.get(namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
 
         if isinstance(uuid, str):
             namemc_verify_like_url = self.like_list + server + '/likes?profile=' + str(input)
 
-            namemc_verify_like_url_request = requests.get(
-                namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
+            namemc_verify_like_url_request = requests.get(namemc_verify_like_url).json()  # will give a output of true or false true being is liking the server and false being the player is not liking the server
             # namemc api
         if namemc_verify_like_url_request == False:
             return False
@@ -225,7 +218,7 @@ class namepy():
         skin_link = requests.get(self.skin_url + skinid)
         soup = BeautifulSoup(skin_link.content, 'html.parser')
 
-        username_box_result = soup.find_all('div', class_='card-body player-list py-2') # find everything under div and the class for the usernames are stored\
+        username_box_result = soup.find_all('div', class_='card-body player-list py-2') # find everything under div and the class for the usernames are stored
         for results in username_box_result:  # for things in usernameboxreslt
             for usernames in results.find_all('a', href=True):  # this just sorts everything to href libary which we need to search the naems in
                 user_list.append(usernames.text)  # adds all names to list
