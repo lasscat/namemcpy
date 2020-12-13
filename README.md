@@ -28,4 +28,4 @@ Anyone who contributes gets added if I have not added you please email me. To al
 
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
-nothing much
+i like darkmode
