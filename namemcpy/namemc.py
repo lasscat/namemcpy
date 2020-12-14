@@ -39,10 +39,11 @@ class namepy():
         self.uuid_api_url = 'https://sessionserver.mojang.com/session/minecraft/profile/'
         self.skin_url = 'https://namemc.com/skin/'
         self.cape_url = 'https://namemc.com/cape/'
+        self.user_profile_url = 'https://namemc.com/profile/'
 
     def __version__(self):
         """returns version number"""
-        return "1.3.1" # returns namepy version
+        return "1.3.4" # returns namepy version
 
     def printFriendList(self, playerInput=False, uuidInput=False, output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
         "print friends list search by username and the ouput being username"
@@ -258,3 +259,6 @@ class namepy():
                 cape_list_for_number.append(capeNumber)
 
         cape_user_total = len(cape_list_for_number)
+
+
+
