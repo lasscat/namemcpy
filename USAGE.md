@@ -22,16 +22,23 @@ Uuid to Username (returns username)
 username to uuid (returns uuid)
 
 ## skinUsers(skinid)
-(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurtae but Im 90% sure it is.)
+(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurate but Im 90% sure it is.)
 Enter the skin id to the skin you want to get the users from and it will return a value for all the names/players who are wearing the skin.
 
 ## getSkinTags(skinid)
-(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurtae but Im 90% sure it is.)
+(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurate but Im 90% sure it is.)
 Get the skin tags or hashtags on a skin
 
 ## getSkinNumber(skinid)
-(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurtae but Im 90% sure it is.)
+(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurate but Im 90% sure it is.)
 Get how much people are using a skin
+
+##def playerSkins(self, current=False, username=False, uuid=False):
+(this feature does not use namemcapi It scrapes the website for skin users may not be 100% accurate but Im 90% sure it is.)
+Playername to player skin history (outputted in hashes)
+
+##def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
+Render skins
 
 
 For more detail check out the examples folder. (not updated very often)
