@@ -1,3 +1,9 @@
+# v1.4.0 12-14-2020🥳
+Added 2 new functions renderskin, and playerskin
+
+# v1.3.4 12-14-2020🎉
+Fixed my ocd stuff
+
 # v1.3.3 11-27-2020🎉
 Fixed spacing errors that caused the program to break.
 
