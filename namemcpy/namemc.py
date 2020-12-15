@@ -43,7 +43,7 @@ class namepy():
 
     def __version__(self):
         """returns version number"""
-        return "1.3.4" # returns namepy version
+        return "1.4.0" # returns namepy version
 
     def printFriendList(self, playerInput=False, uuidInput=False, output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
         "print friends list search by username and the ouput being username"
@@ -236,12 +236,12 @@ class namepy():
 
         cape_request = requests.get(self.cape_url + capeid)
 
-        soup = BeautifulSoup(cape_request, 'html.parser')
+        soup = BeautifulSoup(cape_request.text, 'html.parser')
         cape_scrape = soup.find_all('div', class_='card-body player-list py-2')
 
         for capeusers in cape_scrape:
             for get_cape in capeusers.find_all('a', href=True):
-                cape_user_list.append(get_cape)
+                cape_user_list.append(get_cape.text)
 
         return cape_user_list
 
@@ -251,14 +251,62 @@ class namepy():
 
         cape_request = requests.get(self.cape_url + capeid)
 
-        soup = BeautifulSoup(cape_request, 'html.parser')
+        soup = BeautifulSoup(cape_request.text, 'html.parser')
         cape_scrape = soup.find_all('div', class_='card-body player-list py-2')
 
         for cape_user in cape_scrape:
             for capeNumber in cape_user.find_all('a', href=True):
-                cape_list_for_number.append(capeNumber)
+                cape_list_for_number.append(capeNumber.text)
 
         cape_user_total = len(cape_list_for_number)
 
+        return cape_user_total
 
+    def playerSkins(self, current=False, username=False, uuid=False): #username or uuid is 'false' because its not mandatory to enter them11
 
+        skin_hash_list = [] #makes list to store all skin hashes that namemc is using
+        final_list = []
+
+        if isinstance(username, str):
+            profile_request = requests.get('https://namemc.com/profile/' + username) #gets websites code or scrapes it
+
+        if isinstance(uuid, str):
+            profile_request = requests.get('https://namemc.com/profile/' + str(uuid)) #gets websites code or scrapes it
+
+        soup = BeautifulSoup(profile_request.text, 'html.parser')
+        skin_scrape = soup.find_all('div', class_='card-body text-center') # searches for div in the specified class
+
+        for usedskins in skin_scrape:
+            for skin_hashes in usedskins.find_all('a', href=True):
+                    skin_hash_list.append(skin_hashes['href'])
+
+        if current == False:
+            skin_hash_list.remove('javascript:void(0)')
+
+        for s in skin_hash_list:
+            final = s.lstrip('/skin/')
+            final_list.append(final)
+
+        if current == False:
+            return final_list
+        if current == True:
+            return final_list[0]
+        
+    def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
+
+        if directon=='front' and model=='slim' and time==False:
+            url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=slim&theta=0&phi=0&time=0&width=600&height=800'
+            
+        if directon=='front' and model=='slim' and isinstance(time, str):
+            url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=slim&theta=0&phi=0&time=' + time + '&width=600&height=800'
+
+        if directon=='front' and model=='big' and time==False:
+            url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=big&theta=0&phi=0&time=0&width=600&height=800'
+            
+        if directon=='front' and model=='big' and isinstance(time, str):
+            url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=big&theta=0&phi=0&time=' + time + '&width=600&height=800'
+        
+        if isinstance(x, str) and isinstance(y, str) and directon==False and isinstance(time, str):
+            url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model='+ model + '&theta='+ x + '&phi='+ y + '&time=' + time + '&width=600&height=800'
+
+        return url
