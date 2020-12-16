@@ -29,3 +29,4 @@ Anyone who contributes gets added if I have not added you please email me. To al
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
 i like darkmode
+and len likes just for return just change it so you dont need a second var
