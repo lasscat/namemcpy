@@ -26,7 +26,7 @@ import time
 import requests
 import json
 from bs4 import BeautifulSoup
-ts = time.time()
+ts = time.time() # module so I can get unix time for the mojang api
 
 class namepy():
 
@@ -119,8 +119,7 @@ class namepy():
         """get the server like number"""
 
         likes = [] # creates a list so we can append all the likes to this list later
-        server_api_url = self.like_list + server + '/likes'
-        server_url_request = requests.get(server_api_url).json() #requests get the url from above ^ then jsons it
+        server_url_request = requests.get(self.like_list + server + '/likes').json() #requests get the url from above ^ then jsons it
 
 
         for players in server_url_request:
@@ -210,7 +209,7 @@ class namepy():
 
             return tags
 
-        if tags == empty_tags:
+        if tags == empty_tags: # maybe if tags == [] NOT SURE THOUGH
             return False #returns false if there are no tags
 
     def getSkinNumber(self, skinid):
@@ -260,7 +259,7 @@ class namepy():
 
         cape_user_total = len(cape_list_for_number)
 
-        return cape_user_total
+        return cape_user_total # maybe do this return len(cape_user_total) so I dont need another var
 
     def playerSkins(self, current=False, username=False, uuid=False): #username or uuid is 'false' because its not mandatory to enter them11
 
@@ -280,16 +279,16 @@ class namepy():
             for skin_hashes in usedskins.find_all('a', href=True):
                     skin_hash_list.append(skin_hashes['href'])
 
-        if current == False:
-            skin_hash_list.remove('javascript:void(0)')
+        if current == False: # if player wants to see the first skin or current skin then it will NOT git rid of javascript thing because it will not view it
+            skin_hash_list.remove('javascript:void(0)') # weird thing that actually gets in the list so I have to do this
 
-        for s in skin_hash_list:
+        for s in skin_hash_list: # strips /skin/ from the lis
             final = s.lstrip('/skin/')
-            final_list.append(final)
+            final_list.append(final) # cant seem to clear the final list so I just made another list
 
-        if current == False:
+        if current == False: # if current false just print the full list
             return final_list
-        if current == True:
+        if current == True: # if current true give it the first value if your wondering the reason why its 0 is because in programming numbers start at 0
             return final_list[0]
         
     def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
