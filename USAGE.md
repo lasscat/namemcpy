@@ -38,7 +38,7 @@ Get how much people are using a skin
 Playername to player skin history (outputted in hashes)
 
 ##def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
-Render skins
+Rende skins.
 
 
 For more detail check out the examples folder. (not updated very often)
