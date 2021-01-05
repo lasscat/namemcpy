@@ -224,10 +224,8 @@ class namepy():
         for results in username_box_result:  # for things in usernameboxreslt
             for usernames in results.find_all('a', href=True):  # this just sorts everything to href libary which we need to search the naems in
                 user_list.append(usernames.text)  # adds all names to list
-                number = len(user_list) # lens the list for all users
-
-
-        return number #returns the number value
+                
+        return len(user_list) #returns the number value
 
     def getCapeUsers(self, capeid):
 
