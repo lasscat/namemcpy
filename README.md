@@ -21,6 +21,7 @@ For usage check out the USAGE.md.
 
   # Credits❤️
 Anyone who contributes gets added if I have not added you please email me. To all the contributers thank you so much support I would not be here without all of you. ❤️
+ty guys for the stars
 
 [lasscat](https://github.com/lasscat)
 
@@ -29,3 +30,4 @@ Anyone who contributes gets added if I have not added you please email me. To al
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
 nothing just review some code
+
