@@ -29,5 +29,4 @@ ty guys for the stars
 
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
-nothing just review some code
-
+get server pign with getPing()
