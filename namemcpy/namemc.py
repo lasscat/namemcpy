@@ -255,7 +255,7 @@ class namepy():
             for capeNumber in cape_user.find_all('a', href=True):
                 cape_list_for_number.append(capeNumber.text)
                 
-        return len(cape_user_total) 
+        return len(cape_list_for_number) 
 
     def playerSkins(self, current=False, username=False, uuid=False): #username or uuid is 'false' because its not mandatory to enter them11
 
