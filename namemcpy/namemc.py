@@ -26,7 +26,7 @@ import time
 import requests
 import json
 from bs4 import BeautifulSoup
-ts = time.time() # module so I can get unix time for the mojang api
+ts = time.time()
 
 class namepy():
 
@@ -43,7 +43,7 @@ class namepy():
 
     def __version__(self):
         """returns version number"""
-        return "1.4.0" # returns namepy version
+        return "1.4.1" # returns namepy version
 
     def printFriendList(self, playerInput=False, uuidInput=False, output=False):  # add a function to find a users friend my username (player) is the player you want to search the friends of
         "print friends list search by username and the ouput being username"
@@ -119,7 +119,8 @@ class namepy():
         """get the server like number"""
 
         likes = [] # creates a list so we can append all the likes to this list later
-        server_url_request = requests.get(self.like_list + server + '/likes').json() #requests get the url from above ^ then jsons it
+        server_api_url = self.like_list + server + '/likes'
+        server_url_request = requests.get(server_api_url).json() #requests get the url from above ^ then jsons it
 
 
         for players in server_url_request:
@@ -209,7 +210,7 @@ class namepy():
 
             return tags
 
-        if tags == empty_tags: # maybe if tags == [] NOT SURE THOUGH
+        if tags == empty_tags:
             return False #returns false if there are no tags
 
     def getSkinNumber(self, skinid):
@@ -224,8 +225,10 @@ class namepy():
         for results in username_box_result:  # for things in usernameboxreslt
             for usernames in results.find_all('a', href=True):  # this just sorts everything to href libary which we need to search the naems in
                 user_list.append(usernames.text)  # adds all names to list
-                
-        return len(user_list) #returns the number value
+                number = len(user_list) # lens the list for all users
+
+
+        return number #returns the number value
 
     def getCapeUsers(self, capeid):
 
@@ -242,11 +245,11 @@ class namepy():
 
         return cape_user_list
 
-    def capeUserNumber(self, capeid):
+    def capeUserNumber(self, capehash):
 
         cape_list_for_number = []
 
-        cape_request = requests.get(self.cape_url + capeid)
+        cape_request = requests.get(self.cape_url + capehash)
 
         soup = BeautifulSoup(cape_request.text, 'html.parser')
         cape_scrape = soup.find_all('div', class_='card-body player-list py-2')
@@ -254,8 +257,8 @@ class namepy():
         for cape_user in cape_scrape:
             for capeNumber in cape_user.find_all('a', href=True):
                 cape_list_for_number.append(capeNumber.text)
-                
-        return len(cape_list_for_number) 
+
+        return len(cape_list_for_number)
 
     def playerSkins(self, current=False, username=False, uuid=False): #username or uuid is 'false' because its not mandatory to enter them11
 
@@ -275,32 +278,32 @@ class namepy():
             for skin_hashes in usedskins.find_all('a', href=True):
                     skin_hash_list.append(skin_hashes['href'])
 
-        if current == False: # if player wants to see the first skin or current skin then it will NOT git rid of javascript thing because it will not view it
-            skin_hash_list.remove('javascript:void(0)') # weird thing that actually gets in the list so I have to do this
+        if current == False:
+            skin_hash_list.remove('javascript:void(0)') # just have to get rid of something that stays in the code idk y
 
-        for s in skin_hash_list: # strips /skin/ from the lis
+        for s in skin_hash_list:
             final = s.lstrip('/skin/')
-            final_list.append(final) # cant seem to clear the final list so I just made another list
+            final_list.append(final)
 
-        if current == False: # if current false just print the full list
+        if current == False:
             return final_list
-        if current == True: # if current true give it the first value if your wondering the reason why its 0 is because in programming numbers start at 0
+        if current == True:
             return final_list[0]
-        
+
     def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
 
         if directon=='front' and model=='slim' and time==False:
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=slim&theta=0&phi=0&time=0&width=600&height=800'
-            
+
         if directon=='front' and model=='slim' and isinstance(time, str):
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=slim&theta=0&phi=0&time=' + time + '&width=600&height=800'
 
         if directon=='front' and model=='big' and time==False:
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=big&theta=0&phi=0&time=0&width=600&height=800'
-            
+
         if directon=='front' and model=='big' and isinstance(time, str):
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model=big&theta=0&phi=0&time=' + time + '&width=600&height=800'
-        
+
         if isinstance(x, str) and isinstance(y, str) and directon==False and isinstance(time, str):
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model='+ model + '&theta='+ x + '&phi='+ y + '&time=' + time + '&width=600&height=800'
 
