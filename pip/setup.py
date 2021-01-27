@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="namemcpy",
-    version="1.3.2",
+    version="1.4.1",
     license="MIT",
     author="Luke Lass",
     author_email="ants.uk.us@gmail.com",
