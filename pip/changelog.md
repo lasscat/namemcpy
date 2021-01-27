@@ -1,3 +1,6 @@
+# v1.4.1 1-27-2021
+Happy new year, this update we fixed a bug with capeusernumber.
+
 # v1.4.0 12-14-2020🥳
 Added 2 new functions renderskin, and playerskin
 
