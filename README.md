@@ -27,6 +27,8 @@ ty guys for the stars
 
 [BluCobalt](https://github.com/BluCobalt)
 
+[DarkOnion0](https://github.com/DarkOnion0)
+
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
 get server ping with getPing()
