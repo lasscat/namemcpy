@@ -247,7 +247,7 @@ class namepy():
 
     def capeUserNumber(self, capehash):
 
-        cape_list_for_number = []
+        test_var = 0
 
         cape_request = requests.get(self.cape_url + capehash)
 
@@ -256,9 +256,13 @@ class namepy():
 
         for cape_user in cape_scrape:
             for capeNumber in cape_user.find_all('a', href=True):
-                cape_list_for_number.append(capeNumber.text)
+                test_var +=1
 
-        return len(cape_list_for_number)
+        if test_var > 3000 or capehash == '1981aad373fa9754' or capehash == '72ee2cfcefbfc081' or capehash == '0e4cc75a5f8a886d' or capehash == 'ebc798c3f7eca2a3' or capehash == '9349fa25c64ae935': # reason why i have if greatrer than 3000 is for the account migration stuff and how much people are going to have it so i dont have to update this the day migration comes out
+            return test_var - 1
+        else:
+            return test_var
+
 
     def playerSkins(self, current=False, username=False, uuid=False): #username or uuid is 'false' because its not mandatory to enter them11
 
@@ -308,3 +312,10 @@ class namepy():
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model='+ model + '&theta='+ x + '&phi='+ y + '&time=' + time + '&width=600&height=800'
 
         return url
+
+    def serverPing(self, server_ip):
+
+        server_page = requests.get(self.like_list + server_ip)
+
+        soup = BeautifulSoup(server_page.text, 'html.parser')
+        ip_scrape = soup.find_all('div', class_='card-body player-list py-2')
