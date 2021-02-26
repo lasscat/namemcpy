@@ -1,3 +1,6 @@
+# v1.4.2 1-27-2021
+Happy valentines day, this update we fixed a bug with capeusernumber again.
+
 # v1.4.1 1-27-2021
 Happy new year, this update we fixed a bug with capeusernumber.
 
