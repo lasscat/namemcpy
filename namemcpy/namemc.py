@@ -313,9 +313,3 @@ class namepy():
 
         return url
 
-    def serverPing(self, server_ip):
-
-        server_page = requests.get(self.like_list + server_ip)
-
-        soup = BeautifulSoup(server_page.text, 'html.parser')
-        ip_scrape = soup.find_all('div', class_='card-body player-list py-2')
