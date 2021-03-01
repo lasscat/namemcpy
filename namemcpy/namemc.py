@@ -280,10 +280,12 @@ class namepy():
 
         for usedskins in skin_scrape:
             for skin_hashes in usedskins.find_all('a', href=True):
-                    skin_hash_list.append(skin_hashes['href'])
+                skin_hash_list.append(skin_hashes['href'])
+                if 'javascript:void(0)' in skin_hash_list:
+                    skin_hash_list.remove('javascript:void(0)')  # just have to get rid of something that stays in the code idk y
 
         if current == False:
-            skin_hash_list.remove('javascript:void(0)') # just have to get rid of something that stays in the code idk y
+            pass
 
         for s in skin_hash_list:
             final = s.lstrip('/skin/')
@@ -312,4 +314,3 @@ class namepy():
             url = 'https://render.namemc.com/skin/3d/body.png?skin=' + skinhash + '&model='+ model + '&theta='+ x + '&phi='+ y + '&time=' + time + '&width=600&height=800'
 
         return url
-
