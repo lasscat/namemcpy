@@ -33,4 +33,3 @@ ty guys for the stars
 # TODO 🧠 (my personal stuff todo excuse my grammar)
 get server ping with getPing()
 update examples and make docs
-fix getcape as there is a issue that it will give 1 more cape user than intended.
