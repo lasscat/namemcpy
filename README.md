@@ -32,4 +32,6 @@ ty guys for the stars
 
 # TODO 🧠 (my personal stuff todo excuse my grammar)
 get server ping with getPing()
-update examples and make docs
+update examples and make docs\
+
+also the problem with not showing all skins because of the page showing just a couple use the dedicated url to get all skins
