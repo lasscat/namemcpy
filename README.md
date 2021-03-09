@@ -21,7 +21,7 @@ Or just run the .bat file in the install folder.
 
 # Usage (WIP) ✏️
 
-For usage check out the USAGE.md.
+For usage check out the [Wiki](https://github.com/lasscat/namemcpy/wiki) (Recommended.) or, alternativly check out the [usage.md](https://github.com/lasscat/namemcpy/blob/main/USAGE.md) (Not recommended as its highly outdated.)
 
   # Credits❤️
 Anyone who contributes gets added if I have not added you please dm me on discord lasscat#7377. To all the contributers thank you so much support I would not be here without all of you. ❤️ Thanks for the stars.
