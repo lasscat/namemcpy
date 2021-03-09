@@ -1,5 +1,5 @@
 # 1.4.3 2-28-2021
-Hi everyone, thsi update we fixed this issue, https://github.com/lasscat/namemcpy/issues/6
+Hi everyone, thsi update we fixed this issue https://github.com/lasscat/namemcpy/issues/6
 
 # v1.4.2 2-26-2021
 Happy valentines day, this update we fixed a bug with capeusernumber again.
