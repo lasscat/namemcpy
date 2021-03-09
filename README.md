@@ -4,7 +4,7 @@ namemcpy is a api wrapper for [namemc](https://namemc.com)
 Some features of this scrape the website and potentially break if the websites changes.
 
 
-Please note the author of namemcpy or namemcpy is affiliated with [namemc](https:namemc.com) in any way.
+Please note the author of namemcpy or namemcpy is affiliated with [namemc](https://namemc.com/) in any way.
 
 
 # How to install💾
