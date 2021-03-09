@@ -31,6 +31,9 @@ Anyone who contributes gets added if I have not added you please dm me on discor
 
 # TODO 🧠
 Get server ping with getPing()
+
 Make a 'read the docs'
+
 Update examples.
+
 Fix the problem with not showing all skins because of the page showing just a couple use the dedicated url to get all skins.
