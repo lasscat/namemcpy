@@ -6,22 +6,21 @@ Some features of this scrape the website and potentially break if the websites c
 # How to install💾
 
 `pip install namemcpy`
-or
+or,
 
 `pip3 install namemcpy`
-or
+or,
 
 `pip3 install -r install.txt`
 
-or just run the .bat file in the install folder.
+Or just run the .bat file in the install folder.
 
 # Usage (WIP) ✏️
 
 For usage check out the USAGE.md.
 
   # Credits❤️
-Anyone who contributes gets added if I have not added you please email me. To all the contributers thank you so much support I would not be here without all of you. ❤️
-ty guys for the stars
+Anyone who contributes gets added if I have not added you please dm me on discord lasscat#7377. To all the contributers thank you so much support I would not be here without all of you. ❤️ Thanks for the stars.
 
 [lasscat](https://github.com/lasscat)
 
@@ -30,8 +29,8 @@ ty guys for the stars
 [DarkOnion0](https://github.com/DarkOnion0)
 
 
-# TODO 🧠 (my personal stuff todo excuse my grammar)
-get server ping with getPing()
-update examples and make docs\
-
-also the problem with not showing all skins because of the page showing just a couple use the dedicated url to get all skins
+# TODO 🧠
+Get server ping with getPing()
+Make a 'read the docs'
+Update examples.
+Fix the problem with not showing all skins because of the page showing just a couple use the dedicated url to get all skins.
