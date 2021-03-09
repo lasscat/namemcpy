@@ -11,8 +11,7 @@ Happy new year, this update we fixed a bug with capeusernumber.
 Added 2 new functions renderskin, and playerskin
 
 # v1.3.4 12-14-2020🎉
-Fixed my ocd stuff
-
+Fixed some things that my trigger your OCD.
 # v1.3.3 11-27-2020🎉
 Fixed spacing errors that caused the program to break.
 
@@ -37,5 +36,5 @@ Smaller update just got rid of a scraped function that I accidently left in the 
 
 3. Fixed some typos and the printFriendListUsernameOutputUuid() As it would outputing name, which was fixed.
 
-Pretty much it
+Pretty much it.
 
