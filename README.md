@@ -41,3 +41,6 @@ Make a 'read the docs'
 Update examples.
 
 Fix the problem with not showing all skins because of the page showing just a couple use the dedicated url to get all skins.
+
+
+Add a terminal cmd kind of think like swiss7
