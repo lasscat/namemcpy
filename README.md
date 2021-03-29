@@ -10,10 +10,8 @@ Please note the author of namemcpy or namemcpy is affiliated with [namemc](https
 # How to install💾
 
 `pip install namemcpy`
-or,
 
 `pip3 install namemcpy`
-or,
 
 `pip3 install -r install.txt`
 
