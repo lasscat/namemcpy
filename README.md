@@ -30,6 +30,8 @@ Anyone who contributes gets added if I have not added you please dm me on discor
 
 [DarkOnion0](https://github.com/DarkOnion0)
 
+[Eslam513](https://github.com/Eslam512)
+
 
 # TODO 🧠
 Get server ping with getPing()
