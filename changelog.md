@@ -1,3 +1,6 @@
+# 1.5.0 4-3-2021
+Added a new feature when you can see if your name drops thanks eslam512
+
 # 1.4.3 2-28-2021
 Hi everyone, thsi update we fixed this issue https://github.com/lasscat/namemcpy/issues/6
 
