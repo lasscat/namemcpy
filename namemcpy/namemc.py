@@ -1,7 +1,7 @@
 """
 MIT License
 
-Copyright (c) 2020-2021 Luke Lass
+Copyright (c) 2020 Luke Lass
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,8 @@ import requests
 import json
 from bs4 import BeautifulSoup
 ts = time.time()
-
+import datetime
+from datetime import datetime, timezone
 class namepy():
 
     def __init__(self):
@@ -40,6 +41,7 @@ class namepy():
         self.skin_url = 'https://namemc.com/skin/'
         self.cape_url = 'https://namemc.com/cape/'
         self.user_profile_url = 'https://namemc.com/profile/'
+        self.drop = 'https://api.kqzz.me/api/namemc/droptime/'
 
     def __version__(self):
         """returns version number"""
@@ -295,6 +297,14 @@ class namepy():
             return final_list
         if current == True:
             return final_list[0]
+
+    def nameDrop(self, name): #thanks eslam for the code :)
+        r = requests.get(self.drop + name)
+        soup = BeautifulSoup(r.text, 'html.parser')
+        texts = soup.findAll(text=True)
+        digits = ''.join([i for i in texts[0] if i.isdigit()])
+        droptime = datetime.fromtimestamp(int(digits)).strftime('%H:%M:%S')
+        print("Name will drop on", droptime)
 
     def renderSkin(self, skinhash, model, x=False, y=False, directon=False, time=False):
 
