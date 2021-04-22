@@ -44,3 +44,5 @@ Fix the problem with not showing all skins because of the page showing just a co
 
 
 Add a terminal cmd kind of think like swiss7
+
+add get ping
