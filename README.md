@@ -32,6 +32,8 @@ Anyone who contributes gets added. If I have not added you please DM me on disco
 
 [Eslam513](https://github.com/Eslam512)
 
+[Atteure](https://github.com/atteure)
+
 
 # TODO 🧠
 Get server ping with getPing()
