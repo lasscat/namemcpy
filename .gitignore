@@ -3,3 +3,7 @@
 
 # disable env tracking
 env
+/namemcpy/test.py
+/.vs
+/namemcpy/__pycache__
+/.gitignore
