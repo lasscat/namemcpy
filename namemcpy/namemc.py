@@ -26,6 +26,8 @@ import time
 import requests
 import json
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 ts = time.time()
 import datetime
 from datetime import datetime, timezone
@@ -270,15 +272,18 @@ class namepy():
 
         skin_hash_list = [] #makes list to store all skin hashes that namemc is using
         final_list = []
+        print(username) #DEBUG
 
         if isinstance(username, str):
-            profile_request = requests.get('https://namemc.com/profile/' + username) #gets websites code or scrapes it
+            url = f"https://namemc.com/minecraft-skins/profile/{username}"
 
         if isinstance(uuid, str):
-            profile_request = requests.get('https://namemc.com/profile/' + str(uuid)) #gets websites code or scrapes it
-
-        soup = BeautifulSoup(profile_request.text, 'html.parser')
-        skin_scrape = soup.find_all('div', class_='card-body text-center') # searches for div in the specified class
+           url = f"https://namemc.com/minecraft-skins/profile/{username}"
+        service = Service(r"C:\Users\aikma\Downloads\chromedriver_win32\chromedriver.exe")
+        driver = webdriver.Chrome(service=service)
+        driver.get(url)
+        soup = BeautifulSoup(driver.page_source)
+        skin_scrape = soup.find_all('div', class_='card mb-2') # searches for div in the specified class
 
         for usedskins in skin_scrape:
             for skin_hashes in usedskins.find_all('a', href=True):

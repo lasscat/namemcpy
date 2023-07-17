@@ -3,3 +3,4 @@
 
 # disable env tracking
 env
+/namemcpy/test.py
